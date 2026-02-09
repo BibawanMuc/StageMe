@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  stageme:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: stageme-app
+    restart: unless-stopped
+    ports:
+      - "3000:80"
+    environment:
+      - NODE_ENV=production
+    networks:
+      - proxy-netz
+    labels:
+      # Nginx Proxy Manager labels (if using NPM)
+      - "com.nginx-proxy.enable=true"
+
+networks:
+  proxy-netz:
+    external: true
