@@ -11,8 +11,8 @@ services:
         VITE_SUPABASE_ANON_KEY: ${VITE_SUPABASE_ANON_KEY}
     container_name: stageme-app
     restart: unless-stopped
-    ports:
-      - "${APP_PORT:-3002}:80"
+    # ports:
+    #   - "${APP_PORT:-3002}:80"  # Disabled - NPM connects via Docker network
     environment:
       - NODE_ENV=production
     networks:
