@@ -5,14 +5,20 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        VITE_GEMINI_API_KEY: ${VITE_GEMINI_API_KEY}
+        VITE_SUPABASE_URL: ${VITE_SUPABASE_URL}
+        VITE_SUPABASE_ANON_KEY: ${VITE_SUPABASE_ANON_KEY}
     container_name: stageme-app
     restart: unless-stopped
-    # ports:
-    # - "3001:80"  # Not needed - NPM connects via Docker network
+    ports:
+      - "${APP_PORT:-3002}:80"
     environment:
       - NODE_ENV=production
     networks:
       - proxy-netz
+    env_file:
+      - .env
     labels:
       # Nginx Proxy Manager labels (if using NPM)
       - "com.nginx-proxy.enable=true"
