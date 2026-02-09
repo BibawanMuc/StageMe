@@ -1,6 +1,16 @@
 # Build stage
 FROM node:18-alpine AS builder
 
+# Accept build arguments for Vite environment variables
+ARG VITE_GEMINI_API_KEY
+ARG VITE_SUPABASE_URL
+ARG VITE_SUPABASE_ANON_KEY
+
+# Set as environment variables for Vite build
+ENV VITE_GEMINI_API_KEY=$VITE_GEMINI_API_KEY
+ENV VITE_SUPABASE_URL=$VITE_SUPABASE_URL
+ENV VITE_SUPABASE_ANON_KEY=$VITE_SUPABASE_ANON_KEY
+
 WORKDIR /app
 
 # Copy package files
