@@ -8,8 +8,7 @@ const MODEL_NAME = 'gemini-3-pro-image-preview';
 export async function generateStageImage(
     sketchBase64: string,
     photoBase64: string,
-    stageBase64: string,
-    promptContext: string
+    stageBase64: string
   ): Promise<string> {
   
   if (!API_KEY) throw new Error('API Key not found');

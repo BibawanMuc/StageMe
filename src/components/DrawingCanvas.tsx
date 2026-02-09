@@ -1,6 +1,6 @@
 
 import { useRef, useState, useEffect, forwardRef, useImperativeHandle } from 'react';
-import { Eraser, Pencil, RotateCcw, Undo } from 'lucide-react';
+import { Eraser, Pencil, RotateCcw } from 'lucide-react';
 
 interface DrawingCanvasProps {
   width?: number;
@@ -44,10 +44,6 @@ export const DrawingCanvas = forwardRef<DrawingCanvasRef, DrawingCanvasProps>(({
     clearCanvas();
   }, []);
 
-  const startDrawing = (e: React.MouseEvent | React.TouchEvent) => {
-    setIsDrawing(true);
-    draw(e);
-  };
 
   const stopDrawing = () => {
     setIsDrawing(false);
