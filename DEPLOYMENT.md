@@ -24,7 +24,7 @@ ssh root@your-vps-ip
 
 ```bash
 cd /opt
-git clone <your-repo-url> stageme
+git clone https://github.com/BibawanMuc/StageMe.git stageme
 cd stageme
 ```
 
