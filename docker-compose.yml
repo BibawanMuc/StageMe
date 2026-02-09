@@ -7,8 +7,8 @@ services:
       dockerfile: Dockerfile
     container_name: stageme-app
     restart: unless-stopped
-    ports:
-      - "3001:80"
+    # ports:
+    # - "3001:80"  # Not needed - NPM connects via Docker network
     environment:
       - NODE_ENV=production
     networks:
