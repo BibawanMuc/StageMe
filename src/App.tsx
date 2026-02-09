@@ -74,8 +74,7 @@ function App() {
       const generatedImageBase64 = await generateStageImage(
           sketchDataUrl, 
           photo, 
-          stageBase64, 
-          stageConfig.prompt 
+          stageBase64
       );
       
       // Determine if we got an image or text
